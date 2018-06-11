@@ -1,0 +1,48 @@
+{% extends 'admin/change_list.html' %}
+
+{% block object-tools %}
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<div>
+<form action="export/" method="POST">
+  {% csrf_token %}
+  <!-- 日期 -->
+      <h2 class="text-primary">匯出訂購單</h2>
+    <div class="form-group row">
+      <div class="col-xs-3">
+    <input type="disabledTextInput" name="date" id="datepicker" aling="center" id="dis_TextInput" class="form-control" placeholder="請選擇日期...">
+  </div>
+  </div>
+  <input type="submit" name="button" id="button" class="btn btn-primary" value="匯出報表">
+</form>
+  </div>
+    <br />
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js " integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+
+    <script>
+    $.datepicker.regional['zh-TW']={
+       dayNames:["星期日","星期一","星期二","星期三","星期四","星期五","星期六"],
+       dayNamesMin:["日","一","二","三","四","五","六"],
+       monthNames:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+       monthNamesShort:["一月","二月","三月","四月","五月","六月","七月","八月","九月","十月","十一月","十二月"],
+       prevText:"上月",
+       nextText:"次月",
+       weekHeader:"週"
+    };
+    $.datepicker.setDefaults($.datepicker.regional["zh-TW"]);
+    $( function() {
+      $( "#datepicker" ).datepicker({
+          changeMonth: true,
+          changeYear: true,
+          dateFormat: "yy/mm/dd",
+        });
+    });
+    </script>
+
+
+    {{ block.super }}
+{% endblock %}

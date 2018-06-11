@@ -1,0 +1,5 @@
+@font-face {
+  font-family: 'Lihei-Pro';
+  src: url('fonts/Lihei-Pro.ttf'),format("truetype"),local(''Lihei-Pro');
+}
+/*  src: url('../static/fonts/Lihei-Pro.ttf'),format("truetype"),local(''Lihei-Pro');*/
